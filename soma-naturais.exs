@@ -17,6 +17,14 @@ defmodule Comum do
         1 + tamanho(tail)
     end
 
+    def fat(0) do
+       1
+    end
+
+    def fat(n) when n > 0 do
+       n * fat(n-1)
+    end
+
 end
 
 
@@ -24,6 +32,10 @@ defmodule Cauda do
 
     def somar_naturais(n) when n >= 0 do
         somar_naturais(n,0)
+    end
+
+    def somar_naturais(_n) do
+        {:Error, "Não é possível utilizar números negativos"}
     end
 
     defp somar_naturais(0, acm) do
@@ -36,10 +48,6 @@ defmodule Cauda do
                                 #Essas linguagens precisam disso, pois não possuem loop elas trabalham com recursividade
                                 # Em python por exemplo, ele não ia reconhecer e ia armazenar na pilha e esperar todos os returns
 
-    def somar_naturais(n) do
-        {:Error, "Não é possível utilizar números negativos"}
-    end
-
     def length(lista) do
         length(lista, 0)
     end
@@ -51,5 +59,18 @@ defmodule Cauda do
     defp length([_head | tail], acm) do
         length(tail, 1 + acm)
     end
+
+    def fat(n) do
+        fat(n, 1)
+    end
+
+    defp fat(0, acm) do
+       acm
+    end
+
+    defp fat(n, acm) do
+        fat(n-1, n*acm)
+    end
+
 
 end

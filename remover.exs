@@ -11,3 +11,5 @@ defmodule Comum do
     [head | remover(tail, el)]
   end
 end
+
+## Cauda?? acho que a comum já está em cauda
